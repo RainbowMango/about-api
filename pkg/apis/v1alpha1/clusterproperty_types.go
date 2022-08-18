@@ -20,10 +20,10 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-// +kubebuilder:resource:scope=Cluster
-// +kubebuilder:printcolumn:name="value",type=string,JSONPath=`.spec.value`
-// +kubebuilder:printcolumn:name="age",type=date,JSONPath=`.metadata.creationTimestamp`
+//+kubebuilder:object:root=true
+//+kubebuilder:resource:scope=Cluster
+//+kubebuilder:printcolumn:name="value",type=string,JSONPath=`.spec.value`
+//+kubebuilder:printcolumn:name="age",type=date,JSONPath=`.metadata.creationTimestamp`
 
 // ClusterProperty is a resource provides a way to store identification related,
 // cluster scoped information for multi-cluster tools while creating flexibility
@@ -46,7 +46,7 @@ type ClusterPropertySpec struct {
 	Value string `json:"value"`
 }
 
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+//+kubebuilder:object:root=true
 
 // ClusterPropertyList contains a list of ClusterProperty.
 type ClusterPropertyList struct {
